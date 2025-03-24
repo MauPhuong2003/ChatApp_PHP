@@ -83,10 +83,28 @@ $msg = $_GET['msg'] ?? ''; // Thông báo (nếu có)
 
             <!-- Nội dung chính -->
             <section class="content col-md-8">
-                <div class="sidebar-section">
-                    <h3><i class="fas fa-info-circle"></i> Nội dung chính</h3>
-                </div>
-            </section>
+    <div class="sidebar-section">
+        <h3><i class="fas fa-info-circle"></i> Nội dung chính</h3>
+    </div>
+    <div class="box">
+        <span style="--i:1;"><img src="../images/a1.jpg" alt=""></span>
+        <span style="--i:2;"><img src="../images/a2.jpg" alt=""></span>
+        <span style="--i:3;"><img src="../images/a3.jpg" alt=""></span>
+        <span style="--i:4;"><img src="../images/a4.jpg" alt=""></span>
+        <span style="--i:5;"><img src="../images/a5.jpg" alt=""></span>
+        <span style="--i:6;"><img src="../images/a6.jpg" alt=""></span>
+        <span style="--i:7;"><img src="../images/a7.jpg" alt=""></span>
+        <span style="--i:8;"><img src="../images/a8.jpg" alt=""></span>
+    </div>
+    <script type="text/javascript">
+        let box = document.querySelector('.box');
+        window.onmousemove = function(e){
+            let x = e.clientX/3;
+            box.style.transform = "perspective(1000px) rotateY("+x+"deg)";
+        }
+    </script>
+</section>
+
         </div>
     </div>
 
