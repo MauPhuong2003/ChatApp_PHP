@@ -84,7 +84,7 @@ $msg = $_GET['msg'] ?? ''; // Thông báo (nếu có)
             <!-- Nội dung chính -->
             <section class="content col-md-8">
     <div class="sidebar-section">
-        <h3><i class="fas fa-info-circle"></i> Nội dung chính</h3>
+        <h3><i class="fas fa-info-circle"></i> Hãy chiêm ngưỡng vẽ đẹp của Van Gogh</h3>
     </div>
     <div class="box">
         <span style="--i:1;"><img src="../images/a1.jpg" alt=""></span>

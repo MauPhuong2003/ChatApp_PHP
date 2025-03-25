@@ -24,12 +24,22 @@
                             <?php else: ?>
                                 <img src="assets/img/default-avatar.png" alt="Avatar">
                             <?php endif; ?>
-                            <a class="view-user" href="index.php?action=viewUser&user_id=<?= htmlspecialchars($result['id']); ?>">
-                                <?= htmlspecialchars($result['username']); ?>
-                            </a>
+                            <?php if ($result['id'] == $_SESSION['user']['id']): ?>
+                                <!-- Nếu là chính người dùng thì chuyển hướng đến trang profile -->
+                                <a class="view-user" href="index.php?action=editProfile">
+                                    <?= htmlspecialchars($result['username']); ?>
+                                </a>
+                            <?php else: ?>
+                                <a class="view-user" href="index.php?action=viewUser&user_id=<?= htmlspecialchars($result['id']); ?>">
+                                    <?= htmlspecialchars($result['username']); ?>
+                                </a>
+                            <?php endif; ?>
                         </div>
                         <div class="actions">
-                            <?php if (isset($result['is_friend']) && ((int)$result['is_friend'] === 1)): ?>
+                            <?php if ($result['id'] == $_SESSION['user']['id']): ?>
+                                <!-- Không hiển thị nút kết bạn đối với chính người dùng -->
+                                <span class="self"></span>
+                            <?php elseif (isset($result['is_friend']) && ((int)$result['is_friend'] === 1)): ?>
                                 <span class="friend">Đã là bạn bè</span>
                             <?php else: ?>
                                 <a class="add-friend" href="index.php?action=sendFriendRequest&receiver_id=<?= htmlspecialchars($result['id']); ?>">
