@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Chat App</title>
+    <title>Chat Box</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Link css chung nếu có -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <h1>Chat App</h1>
+        <h1>Chat Box</h1>
         <?php if(isset($_SESSION['user'])): ?>
         <nav class="nav-menu">
             <div class="menu-toggle">

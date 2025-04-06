@@ -1,6 +1,6 @@
 </main>
     <footer>
-        <p>&copy; 2025 Chat App</p>
+        <p>&copy; Chat Box</p>
     </footer>
     <script src="assets/js/script.js"></script>
 </body>

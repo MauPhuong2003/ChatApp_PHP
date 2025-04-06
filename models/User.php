@@ -54,10 +54,8 @@ class User {
     
     // Lấy danh sách bạn bè
     public function getFriends($user_id) {
-        // Lấy danh sách bạn bè từ bảng friend_requests khi yêu cầu đã được chấp nhận (status = 1)
-        // Nếu user là người gửi, bạn là người nhận và ngược lại.
         $stmt = $this->conn->prepare("
-            SELECT u.id, u.username 
+            SELECT u.id, u.username, u.avatar 
             FROM friend_requests fr
             JOIN users u 
                 ON ( (fr.sender_id = u.id AND fr.receiver_id = ?) 
@@ -67,6 +65,7 @@ class User {
         $stmt->execute([$user_id, $user_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
     
     // Lấy danh sách yêu cầu kết bạn chưa xử lý (status = 0)
     public function getFriendRequests($user_id) {

@@ -11,7 +11,6 @@ spl_autoload_register(function($className) {
 $action = $_GET['action'] ?? 'login';
 
 // ...
-
 switch($action) {
     case 'register':
         $controller = new UserController();
@@ -61,6 +60,14 @@ switch($action) {
         $controller = new ChatController();
         $controller->sendMessage();
         break;
+    case 'deleteMessage':
+        $controller = new ChatController();
+        $controller->deleteMessage();
+        break;
+    case 'editMessage':
+        $controller = new ChatController();
+        $controller->editMessage();
+        break;
     case 'editProfile':
         $controller = new UserController();
         $controller->editProfile();
@@ -70,7 +77,7 @@ switch($action) {
         $controller->viewUser();
         break;
     case 'withdrawRequest':
-    case 'withdrawFriendRequest': // nếu bạn muốn hỗ trợ cả hai tên
+    case 'withdrawFriendRequest':
         $controller = new UserController();
         $controller->withdrawRequest();
         break;
@@ -82,5 +89,4 @@ switch($action) {
         header("Location: index.php?action=login");
         break;
 }
-
 ?>

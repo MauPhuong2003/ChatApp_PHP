@@ -20,5 +20,17 @@ class Chat {
         $stmt->execute([$user_id, $other_id, $other_id, $user_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    // Xóa tin nhắn (chỉ người gửi được xóa)
+    public function deleteMessage($message_id, $user_id) {
+        $stmt = $this->conn->prepare("DELETE FROM messages WHERE id = ? AND from_id = ?");
+        return $stmt->execute([$message_id, $user_id]);
+    }
+
+    // Sửa tin nhắn (chỉ người gửi được sửa)
+    public function editMessage($message_id, $user_id, $newMessage) {
+        $stmt = $this->conn->prepare("UPDATE messages SET message = ? WHERE id = ? AND from_id = ?");
+        return $stmt->execute([$newMessage, $message_id, $user_id]);
+    }
 }
 ?>
